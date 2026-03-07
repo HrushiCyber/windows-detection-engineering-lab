@@ -1,31 +1,62 @@
 # Windows EDR Telemetry Reference
 
-Endpoint detection relies on multiple telemetry categories.
+Modern EDR platforms collect extensive telemetry from endpoints.
 
 ---
 
 ## Process Creation
 
-Key attributes:
+Fields collected:
 
-ProcessName
-CommandLine
-ParentProcess
-IntegrityLevel
+• Process name
+• Command line
+• Parent process
+• Integrity level
+• File path
+
+Detection uses:
+
+Parent-child relationships
+Suspicious command lines
 
 ---
 
 ## Handle Access
 
-Important for detecting:
+Critical for detecting:
 
 Credential dumping
 Process injection
 
+Example:
+
+```
+Process → lsass.exe
+AccessMask → PROCESS_VM_READ
+```
+
 ---
 
-## Network Telemetry
+## Network Connections
 
 Used to detect:
 
-Command and control activity.
+Command and control traffic
+Beaconing activity
+
+---
+
+## File Creation
+
+Tracks malware staging.
+
+Example detection:
+
+Executable dropped in temporary directory.
+
+---
+
+## Registry Changes
+
+Used to detect persistence techniques such as Run keys.
+    

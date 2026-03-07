@@ -1,0 +1,3 @@
+DeviceProcessEvents
+| where FileName == "procdump.exe"
+| where ProcessCommandLine contains "lsass"

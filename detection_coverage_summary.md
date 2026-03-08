@@ -1,12 +1,13 @@
 # Detection Coverage Summary
 
-| Tactic            | Detection          |
-| ----------------- | ------------------ |
-| Credential Access | LSASS Dump         |
-| Execution         | Encoded PowerShell |
-| Persistence       | Scheduled Tasks    |
-| Lateral Movement  | PsExec             |
+| Tactic               | Detections |
+| -------------------- | ---------- |
+| Credential Access    | 4          |
+| Execution            | 6          |
+| Persistence          | 5          |
+| Defense Evasion      | 5          |
+| Lateral Movement     | 4          |
+| Command and Control  | 3          |
+| Privilege Escalation | 4          |
 
----
-
-Future detections will expand coverage across additional ATT&CK techniques.
+Total: **32 detections**

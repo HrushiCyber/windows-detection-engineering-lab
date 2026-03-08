@@ -1,0 +1,2 @@
+DeviceProcessEvents
+| where FileName == "mshta.exe"

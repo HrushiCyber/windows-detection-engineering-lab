@@ -1,22 +1,46 @@
 # Detection: Office Application Spawning Shell
 
-ATT&CK Technique: T1204
+MITRE ATT&CK Technique: T1204
 Tactic: Execution
 
-## Adversary Behavior
+---
 
-Malicious Office documents may spawn command shells.
+# Overview
 
-Example chain:
+Office applications should not normally spawn command shells.
+
+Attackers exploit macros or embedded scripts to execute system commands.
+
+---
+
+# Adversary Tradecraft
+
+Example process chain:
 
 ```
+winword.exe → cmd.exe
 winword.exe → powershell.exe
+excel.exe → wscript.exe
 ```
 
-## Detection Logic
+These chains often indicate malicious macro execution.
+
+---
+
+# Endpoint Telemetry
+
+Relevant telemetry includes:
+
+• process creation events
+• parent-child process relationships
+• command line arguments
+
+---
+
+# Detection Logic
 
 Alert when Office applications spawn:
 
+• PowerShell
 • cmd.exe
-• powershell.exe
 • wscript.exe

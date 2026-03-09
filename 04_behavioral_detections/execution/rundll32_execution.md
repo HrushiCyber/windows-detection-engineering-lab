@@ -1,17 +1,54 @@
 # Detection: Suspicious Rundll32 Execution
 
-ATT&CK Technique: T1218.011
+MITRE ATT&CK Technique: T1218.011
 Tactic: Execution
 
-## Adversary Behavior
+---
 
-Attackers abuse `rundll32.exe` to execute malicious DLLs.
+# Overview
 
-## Detection Signals
+`rundll32.exe` is a Windows utility used to execute functions exported from DLL files.
 
-• Rundll32 loading DLLs from temporary directories
-• Suspicious command line parameters
+Attackers frequently abuse rundll32 to execute malicious code.
 
-## Investigation
+---
 
-Verify DLL path and process parent chain.
+# Adversary Tradecraft
+
+Example malicious command:
+
+```
+rundll32.exe malicious.dll,EntryPoint
+```
+
+Attackers may execute DLLs from:
+
+• temporary directories
+• user download folders
+• network shares
+
+---
+
+# Endpoint Telemetry
+
+Key telemetry signals include:
+
+• rundll32 command line parameters
+• DLL file path
+• parent process relationship
+
+Example suspicious chain:
+
+```
+powershell.exe → rundll32.exe
+```
+
+---
+
+# Detection Logic
+
+Alert when:
+
+• rundll32 executes DLLs from suspicious directories
+• command line contains abnormal parameters
+• parent process is unexpected

@@ -1,17 +1,44 @@
-# Detection: WMIC Remote Execution
+# Detection: WMIC Execution
 
-ATT&CK Technique: T1047
+MITRE ATT&CK Technique: T1047
 Tactic: Execution
 
-## Adversary Behavior
+---
 
-Attackers use Windows Management Instrumentation (WMI) for remote command execution.
+# Overview
 
-## Detection Signals
+Windows Management Instrumentation Command-line (WMIC) enables administrative management of systems.
 
-• WMIC commands executed with remote targets
-• Suspicious process chains
+Attackers abuse WMIC to execute commands locally or remotely.
 
-## Investigation
+---
 
-Identify remote system and executed command.
+# Adversary Tradecraft
+
+Example malicious command:
+
+```
+wmic process call create "cmd.exe /c payload"
+```
+
+Attackers frequently use WMIC for lateral movement or remote command execution.
+
+---
+
+# Endpoint Telemetry
+
+Relevant telemetry signals:
+
+• process creation events
+• command line arguments
+• network connections associated with remote WMI calls
+
+---
+
+# Detection Logic
+
+Alert when:
+
+• WMIC executes suspicious commands
+• WMIC spawns command shells
+• WMIC execution originates from user applications

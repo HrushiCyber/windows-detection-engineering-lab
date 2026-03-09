@@ -1,3 +1,0 @@
-DeviceProcessEvents
-| where ProcessCommandLine contains "lsass"
-| project Timestamp, DeviceName, ProcessCommandLine

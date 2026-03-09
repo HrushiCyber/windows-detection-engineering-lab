@@ -1,9 +1,0 @@
-index=windows EventCode=4688
-| search NewProcessName="*powershell.exe*" CommandLine="*-EncodedCommand*"
-| table _time host CommandLine
-
-
-
-DeviceProcessEvents
-| where FileName == "powershell.exe"
-| where ProcessCommandLine contains "-EncodedCommand"

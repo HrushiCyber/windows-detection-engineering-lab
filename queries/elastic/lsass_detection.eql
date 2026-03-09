@@ -1,2 +1,0 @@
-process where process.name == "procdump.exe"
-and process.command_line like "*lsass*"

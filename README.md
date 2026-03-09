@@ -1,74 +1,151 @@
 # Windows Detection Engineering Lab
 
-This repository documents practical **endpoint detection engineering techniques** used in modern Security Operations Centers (SOC).
+This repository is a **technical knowledge base for Windows Endpoint Detection and Response (EDR) detection engineering**.
 
-The goal is to map **attacker tradecraft → endpoint telemetry → detection logic**.
+The objective of this project is to demonstrate how detection engineers design **behavior-based detections** by combining:
 
----
-
-## Focus Areas
-
-• Windows endpoint telemetry
-• Behavioral detections
-• Threat hunting playbooks
+• Windows internals knowledge
+• Endpoint telemetry analysis
+• Adversary tradecraft understanding
 • Detection engineering methodology
-• SIEM query examples
+
+Instead of relying on static indicators, this repository focuses on **behavioral detection logic derived from attacker techniques**.
 
 ---
 
-## Telemetry Sources
+# Why This Repository Exists
 
-The detections in this repository rely on common endpoint telemetry:
+Most public security repositories focus on:
 
-* Windows Security Event Logs
-* Sysmon
-* EDR process telemetry
-* Network telemetry
+• IOC collections
+• Sigma rules
+• simple SIEM queries
 
----
+However, effective endpoint detection requires deeper understanding of:
 
-## SIEM Query Examples
+• Windows architecture
+• process and memory operations
+• attacker tradecraft
+• endpoint telemetry sources
 
-Queries are provided for:
-
-* Microsoft Sentinel (KQL)
-* Splunk (SPL)
-* Elastic Security (EQL)
+This repository aims to bridge that gap.
 
 ---
 
-## Detection Coverage
+# Repository Structure
 
-Credential Access
-Execution
-Persistence
-Lateral Movement
+## 01 Windows Internals
 
----
+Understanding Windows architecture is essential for designing reliable detections.
 
-## Repository Structure
+Topics include:
 
-```
-detections/                    Detection writeups
-queries/                       SIEM queries
-telemetry_maps/                Endpoint telemetry reference
-threat_hunting_playbooks/      Threat hunting guides
-detection_engineering_notes/   Detection methodology
-```
+• Windows process architecture
+• Windows memory model
+• authentication architecture
+• Windows security subsystem
+• process injection techniques
 
 ---
 
-## Purpose
+## 02 EDR Telemetry
 
-This repository demonstrates practical skills in:
+Endpoint detection platforms rely on telemetry from operating system events.
 
-* Detection engineering
-* Endpoint telemetry analysis
-* Threat hunting
-* SOC investigation workflows
+This section explains how telemetry is generated and how it can be used for detection.
+
+Examples include:
+
+• process creation telemetry
+• file system activity
+• registry modification events
+• network connection telemetry
+• handle access monitoring
 
 ---
 
-## Disclaimer
+## 03 Adversary Tradecraft
 
-All techniques described in this repository are for **defensive security research and detection development only**.
+Detection engineers must understand attacker techniques.
+
+This section documents common attacker behaviors mapped to MITRE ATT&CK.
+
+Examples include:
+
+• credential dumping
+• lateral movement techniques
+• persistence mechanisms
+• defense evasion strategies
+• command and control activity
+
+---
+
+## 04 Behavioral Detections
+
+This section contains behavior-based detections designed using:
+
+• Windows telemetry
+• adversary techniques
+• endpoint signals
+
+---
+
+## 05 Detection Engineering
+
+Detection engineering is an iterative process.
+
+This section documents the frameworks used to build high-fidelity detections.
+
+Topics include:
+
+• detection design methodology
+• detection lifecycle
+• false positive reduction
+• detection validation
+
+---
+
+## 06 SOC Investigation Playbooks
+
+Detection alone is not sufficient.
+
+SOC analysts must investigate alerts effectively.
+
+This section documents investigation workflows for common alerts.
+
+---
+
+## 07 Detection Research
+
+Advanced research topics for detection engineering.
+
+Examples:
+
+• process injection detection
+• PowerShell tradecraft
+• living-off-the-land binaries
+• command and control beaconing
+
+---
+
+## 08 Detection Coverage
+
+Mapping behavioral detections to the MITRE ATT&CK framework.
+
+---
+
+# Intended Audience
+
+This repository is intended for:
+
+• SOC analysts
+• detection engineers
+• threat hunters
+• security engineers
+• blue team practitioners
+
+---
+
+# Disclaimer
+
+This repository is intended for **defensive security research and detection engineering education only**.

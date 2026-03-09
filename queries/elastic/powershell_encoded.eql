@@ -1,2 +1,0 @@
-process where process.name == "powershell.exe"
-and process.command_line like "*EncodedCommand*"
